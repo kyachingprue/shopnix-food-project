@@ -8,6 +8,7 @@ import { DishCard } from '../components/DishCard'
 import { Stars } from '../components/Stars'
 import { FoodCategory } from '../components/food/FoodCategory'
 import Testimonials from '../components/Testimonials'
+
 const feats = [
   [Leaf, 'Fresh Ingredients', 'Sourced daily'],
   [ChefHat, 'Expert Chefs', 'Global experience'],
@@ -59,7 +60,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1 }}
-            src={IMG.hero}
+            src="https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Grilled steak"
             className="mx-auto aspect-square w-full max-w-md rounded-full border-8 border-white/10 object-cover shadow-2xl"
           />
@@ -78,7 +79,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <FoodCategory/>
+      <FoodCategory />
       <section className="mx-auto max-w-7xl px-4 py-16">
         <Title sub="Must Try">Popular Dishes</Title>
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -142,7 +143,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Testimonials/>
+      <Testimonials />
       <section className="bg-forest py-14 text-center text-white">
         <h2 className="font-serif text-3xl">Ready for a Great Meal?</h2>
         <p className="mb-6 mt-2 text-white/75">
