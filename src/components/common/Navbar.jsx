@@ -115,7 +115,7 @@ const Navbar = () => {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `relative rounded-full px-4 py-2.5 text-sm font-medium transition duration-300 ${
+                  `relative rounded-full px-4 py-1.5 text-sm font-medium transition duration-300 ${
                     isActive
                       ? 'bg-gold/10 text-gold'
                       : 'text-white/70 hover:bg-white/5 hover:text-white'
