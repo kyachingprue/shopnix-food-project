@@ -1,27 +1,81 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
+
+// Cart
 const cart = createSlice({
   name: 'cart',
   initialState: { items: [] },
   reducers: {
-    add(s, { payload }) {
-      const i = s.items.find(x => x.id === payload.id)
-      i ? i.qty++ : s.items.push({ ...payload, qty: 1 })
+    add(state, { payload }) {
+      const item = state.items.find(item => item.id === payload.id)
+
+      if (item) {
+        item.qty++
+      } else {
+        state.items.push({ ...payload, qty: 1 })
+      }
     },
-    inc(s, { payload }) {
-      s.items.find(x => x.id === payload).qty++
+
+    inc(state, { payload }) {
+      const item = state.items.find(item => item.id === payload)
+      if (item) item.qty++
     },
-    dec(s, { payload }) {
-      const i = s.items.find(x => x.id === payload)
-      i.qty--
-      if (i.qty < 1) s.items = s.items.filter(x => x.id !== payload)
+
+    dec(state, { payload }) {
+      const item = state.items.find(item => item.id === payload)
+
+      if (!item) return
+
+      item.qty--
+
+      if (item.qty < 1) {
+        state.items = state.items.filter(item => item.id !== payload)
+      }
     },
-    remove(s, { payload }) {
-      s.items = s.items.filter(x => x.id !== payload)
+
+    remove(state, { payload }) {
+      state.items = state.items.filter(item => item.id !== payload)
     },
-    clear(s) {
-      s.items = []
+
+    clear(state) {
+      state.items = []
     }
   }
 })
+
+// Wishlist
+const wishlist = createSlice({
+  name: 'wishlist',
+  initialState: { items: [] },
+
+  reducers: {
+    toggleWishlist(state, { payload }) {
+      const exists = state.items.some(item => item.id === payload.id)
+
+      if (exists) {
+        state.items = state.items.filter(item => item.id !== payload.id)
+      } else {
+        state.items.push(payload)
+      }
+    },
+
+    removeFromWishlist(state, { payload }) {
+      state.items = state.items.filter(item => item.id !== payload)
+    },
+
+    clearWishlist(state) {
+      state.items = []
+    }
+  }
+})
+
 export const { add, inc, dec, remove, clear } = cart.actions
-export const store = configureStore({ reducer: { cart: cart.reducer } })
+
+export const { toggleWishlist, removeFromWishlist, clearWishlist } =
+  wishlist.actions
+
+export const store = configureStore({
+  reducer: {
+    cart: cart.reducer,
+    wishlist: wishlist.reducer
+  }
+})

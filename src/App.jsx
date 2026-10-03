@@ -7,6 +7,7 @@ import { MenuPage } from './pages/Menu'
 import { FoodCardDetails } from './components/food/FoodCardDetails'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
+import Wishlist from './components/food/Wishlist'
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/menu/:id" element={<FoodCardDetails />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
