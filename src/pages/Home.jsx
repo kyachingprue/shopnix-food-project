@@ -7,6 +7,7 @@ import { Title } from '../components/Title'
 import { DishCard } from '../components/DishCard'
 import { Stars } from '../components/Stars'
 import { FoodCategory } from '../components/food/FoodCategory'
+import Testimonials from '../components/Testimonials'
 const feats = [
   [Leaf, 'Fresh Ingredients', 'Sourced daily'],
   [ChefHat, 'Expert Chefs', 'Global experience'],
@@ -141,6 +142,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Testimonials/>
       <section className="bg-forest py-14 text-center text-white">
         <h2 className="font-serif text-3xl">Ready for a Great Meal?</h2>
         <p className="mb-6 mt-2 text-white/75">
