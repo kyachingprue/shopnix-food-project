@@ -8,6 +8,8 @@ import { FoodCardDetails } from './components/food/FoodCardDetails'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
 import Wishlist from './components/food/Wishlist'
+import { Login } from './pages/Login'
+import Register from './pages/Register'
 
 
 export default function App() {
@@ -25,6 +27,8 @@ export default function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
     </Routes>
   )
