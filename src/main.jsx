@@ -13,22 +13,35 @@ createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <BrowserRouter>
         <App />
+
         <Toaster
           position="top-right"
           reverseOrder={false}
+          gutter={10}
+          containerStyle={{
+            zIndex: 99999
+          }}
           toastOptions={{
-            duration: 2500,
+            duration: 3000,
             style: {
               borderRadius: '12px',
               background: '#174c37',
               color: '#fff',
-              padding: '14px 18px'
+              padding: '14px 18px',
+              zIndex: 99999
             },
             success: {
+              duration: 2500,
               iconTheme: {
                 primary: '#b78a35',
                 secondary: '#fff'
               }
+            },
+            error: {
+              duration: 3500
+            },
+            loading: {
+              duration: Infinity
             }
           }}
         />

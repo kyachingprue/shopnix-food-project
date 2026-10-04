@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, toggleWishlist } from '../store/store'
+import toast from 'react-hot-toast'
 
 export function DishCard({ d }) {
   const dispatch = useDispatch()
@@ -30,18 +31,44 @@ export function DishCard({ d }) {
   const unavailable = d.available === false
 
   const handleAddToCart = () => {
-    if (unavailable) return
+    console.log('[DishCard] Add to cart clicked:', d.name)
 
-    dispatch(add(d))
-    setAdded(true)
+    if (unavailable) {
+      toast.error(`${d.name} is currently unavailable!`)
+      return
+    }
 
-    setTimeout(() => setAdded(false), 1200)
+    toast.success(`${d.name} added to your cart!`)
+
+    try {
+      dispatch(add(d))
+      setAdded(true)
+
+      setTimeout(() => setAdded(false), 1200)
+    } catch (error) {
+      console.error('[DishCard] Add to cart failed:', error)
+      toast.error('Failed to add this item to your cart.')
+    }
   }
 
   const handleWishlist = () => {
-    dispatch(toggleWishlist(d))
-  }
+    console.log('[DishCard] Wishlist clicked:', d.name)
 
+    const wasWishlisted = isWishlisted
+
+    toast.success(
+      wasWishlisted
+        ? `${d.name} removed from your wishlist!`
+        : `${d.name} added to your wishlist!`
+    )
+
+    try {
+      dispatch(toggleWishlist(d))
+    } catch (error) {
+      console.error('[DishCard] Wishlist update failed:', error)
+      toast.error('Failed to update your wishlist.')
+    }
+  }
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}

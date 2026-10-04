@@ -241,8 +241,15 @@ export function Cart() {
                   <button
                     type="button"
                     onClick={() => {
+                      if (items.length === 0) {
+                        toast.error('Your cart is already empty!')
+                        return
+                      }
+
                       dispatch(clear())
-                      toast.success('All food items cleared successfully!')
+                      toast.success('Your cart has been cleared!', {
+                        duration: 2500
+                      })
                     }}
                     className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50"
                   >
@@ -330,8 +337,12 @@ export function Cart() {
                                 aria-label={`Remove ${item.name}`}
                                 onClick={() => {
                                   dispatch(remove(item.id))
+
                                   toast.success(
-                                    `${item.name} removed from your cart!`
+                                    `${item.name} removed from your cart!`,
+                                    {
+                                      duration: 2500
+                                    }
                                   )
                                 }}
                                 className="grid h-8 w-8 place-items-center rounded-full text-red-400 md:text-gray-700 transition hover:bg-red-50 hover:text-red-500"

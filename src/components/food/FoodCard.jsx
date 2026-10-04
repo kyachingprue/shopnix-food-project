@@ -7,13 +7,18 @@ import {
   Flame,
   ArrowUpRight,
   Heart,
-  Check
+  Check,
+  LoaderCircle
 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, toggleWishlist } from '../../store/store'
+import toast from 'react-hot-toast'
+import { useState } from 'react'
 
 export function FoodCard({ dish }) {
   const dispatch = useDispatch()
+  const [cartLoading, setCartLoading] = useState(false)
+  const [wishlistLoading, setWishlistLoading] = useState(false)
 
   const wishlistItems = useSelector(state => state.wishlist.items)
 
@@ -24,12 +29,36 @@ export function FoodCard({ dish }) {
   const isInCart = cartItems.some(item => item.id === dish.id)
 
   const handleWishlist = () => {
-    dispatch(toggleWishlist(dish))
+    if (wishlistLoading) return
+
+    setWishlistLoading(true)
+
+    try {
+      dispatch(toggleWishlist(dish))
+
+      if (isWishlisted) {
+        toast.error(`${dish.name} removed from wishlist!`)
+      } else {
+        toast.success(`${dish.name} added to wishlist!`)
+      }
+    } finally {
+      setWishlistLoading(false)
+    }
   }
 
   const handleAddToCart = () => {
-    dispatch(add(dish))
+    if (cartLoading) return
+
+    setCartLoading(true)
+
+    try {
+      dispatch(add(dish))
+      toast.success(`${dish.name} added to cart!`)
+    } finally {
+      setCartLoading(false)
+    }
   }
+
 
   return (
     <motion.article
@@ -88,7 +117,11 @@ export function FoodCard({ dish }) {
               : 'bg-white/95 text-gray-700 hover:bg-red-500 hover:text-white'
           }`}
         >
-          <Heart size={19} className={isWishlisted ? 'fill-current' : ''} />
+          {wishlistLoading ? (
+            <LoaderCircle size={19} className="animate-spin" />
+          ) : (
+            <Heart size={19} className={isWishlisted ? 'fill-current' : ''} />
+          )}
         </motion.button>
 
         {/* Category */}
@@ -159,6 +192,7 @@ export function FoodCard({ dish }) {
             {/* Add to Cart */}
             <motion.button
               type="button"
+              disabled={cartLoading}
               aria-label={`Add ${dish.name} to cart`}
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.9 }}
@@ -169,7 +203,13 @@ export function FoodCard({ dish }) {
                   : 'bg-yellow-500 text-gray-900 hover:bg-yellow-600'
               }`}
             >
-              {isInCart ? <Check size={19} /> : <Plus size={19} />}
+              {cartLoading ? (
+                <LoaderCircle size={19} className="animate-spin" />
+              ) : isInCart ? (
+                <Check size={19} />
+              ) : (
+                <Plus size={19} />
+              )}
             </motion.button>
           </div>
         </div>

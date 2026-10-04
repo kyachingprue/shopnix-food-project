@@ -1,34 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
+import toast, { Toaster } from 'react-hot-toast'
 import {
-  ArrowLeft,
   ArrowRight,
-  Check,
   Heart,
   ShoppingBag,
   ShoppingCart,
-  Sparkles,
-  Star,
   Trash2,
-  UtensilsCrossed
+  UtensilsCrossed,
+  Check,
+  ArrowLeft
 } from 'lucide-react'
-import {
-  add,
-  removeFromWishlist,
-  clearWishlist
-} from '../../store/store'
+import { add, removeFromWishlist, clearWishlist } from '../../store/store'
 
 const Wishlist = () => {
   const dispatch = useDispatch()
 
   const items = useSelector(state => state.wishlist.items)
   const cartItems = useSelector(state => state.cart.items)
-
-  const totalValue = items.reduce(
-    (total, item) => total + Number(item.price || 0),
-    0
-  )
 
   const formatPrice = price =>
     new Intl.NumberFormat('en-US', {
@@ -38,133 +28,142 @@ const Wishlist = () => {
 
   const isInCart = id => cartItems.some(item => item.id === id)
 
+  // Add food to cart with a notification
   const handleAddToCart = item => {
+    const alreadyInCart = isInCart(item.id)
+
     dispatch(add(item))
+
+    toast.success(
+      alreadyInCart
+        ? `${item.name} quantity updated in your cart!`
+        : `${item.name} added to your cart!`
+    )
+  }
+
+  // Remove one food item from the wishlist
+  const handleRemove = item => {
+    dispatch(removeFromWishlist(item.id))
+    toast.success(`${item.name} removed from your wishlist!`)
+  }
+
+  // Clear the complete wishlist
+  const handleClearWishlist = () => {
+    if (items.length === 0) {
+      toast.error('Your wishlist is already empty!')
+      return
+    }
+
+    dispatch(clearWishlist())
+    toast.success('Your wishlist has been cleared!')
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#fffaf5] pb-16 text-gray-900">
-      {/* Hero */}{' '}
-      <section className="relative overflow-hidden bg-[#171717]">
-        {' '}
-        <div className="pointer-events-none absolute -right-20 -top-28 h-80 w-80 rounded-full bg-orange-500/15 blur-3xl" />{' '}
-        <div className="pointer-events-none absolute -bottom-40 left-1/4 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="grid items-center gap-8 md:grid-cols-[1fr_auto]"
-          >
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-300 sm:text-sm">
-                <Heart size={15} className="fill-orange-400" />
-                Your personal collection
-              </span>
+    <main className="min-h-screen bg-[#faf8f2] pb-16 text-[#202b22]">
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2500,
+          style: {
+            borderRadius: '12px',
+            background: '#174c37',
+            color: '#fff',
+            padding: '14px 18px',
+            fontSize: '14px'
+          }
+        }}
+      />
 
-              <h1 className="mt-5 font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                Made with love,
-                <span className="block text-orange-400">saved for later.</span>
+      {/* Wishlist Header */}
+      <section className="border-b border-[#e9e4d9] bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-50 px-3 py-1.5 text-xs font-bold text-red-500">
+                <Heart size={14} className="fill-current" />
+                YOUR SAVED FAVORITES
+              </div>
+
+              <h1 className="mt-4 font-serif text-3xl font-bold sm:text-4xl lg:text-5xl">
+                My Wishlist
+                <span className="ml-3 inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-[#e8efe6] px-2 font-sans text-sm text-[#174c37]">
+                  {items.length}
+                </span>
               </h1>
 
-              <p className="mt-4 max-w-xl text-sm leading-7 text-gray-400 sm:text-base">
-                All the delicious dishes you love, together in one place. Save
-                your favorites and enjoy them whenever the craving strikes.
+              <p className="mt-3 max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
+                Keep your favorite dishes close and add something delicious to
+                your cart whenever you're ready.
               </p>
-
-              <div className="mt-7 flex flex-wrap items-center gap-3">
-                <Link
-                  to="/menu"
-                  className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-orange-400"
-                >
-                  Explore Menu
-                  <ArrowRight size={17} />
-                </Link>
-
-                {items.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => dispatch(clearWishlist())}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-gray-300 transition hover:border-red-400/50 hover:text-red-300"
-                  >
-                    <Trash2 size={16} />
-                    Clear Wishlist
-                  </button>
-                )}
-              </div>
             </div>
 
-            <div className="hidden h-36 w-36 items-center justify-center rounded-full border border-orange-400/20 bg-orange-400/10 md:flex lg:h-44 lg:w-44">
-              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-orange-400/10 lg:h-36 lg:w-36">
-                <Heart
-                  size={64}
-                  strokeWidth={1.3}
-                  className="fill-orange-400/15 text-orange-400 lg:h-20 lg:w-20"
-                />
-              </div>
-            </div>
-          </motion.div>
+            <Link
+              to="/menu"
+              className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#174c37] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#103b2a]"
+            >
+              <UtensilsCrossed size={17} />
+              Explore Menu
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
-      {/* Wishlist content */}
-      <section className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-14 lg:px-8">
-        <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-500">
-              <Sparkles size={15} />
-              Saved favorites
-            </p>
 
-            <h2 className="font-serif text-2xl font-bold sm:text-3xl">
-              My Wishlist
-              <span className="ml-3 inline-flex min-w-8 items-center justify-center rounded-full bg-orange-100 px-2.5 py-1 align-middle font-sans text-sm font-bold text-orange-700">
-                {items.length}
-              </span>
-            </h2>
-          </div>
-
-          {items.length > 0 && (
-            <p className="text-sm text-gray-500">
-              Total saved value:{' '}
-              <span className="font-bold text-gray-900">
-                {formatPrice(totalValue)}
-              </span>
-            </p>
-          )}
-        </div>
-
+      {/* Wishlist Content */}
+      <section className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-10 lg:px-8">
         {items.length === 0 ? (
-          /* Empty state */
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-3xl border border-orange-100 bg-white px-5 py-14 text-center shadow-sm sm:py-20"
+            className="rounded-3xl border border-[#e9e4d9] bg-white px-5 py-16 text-center sm:py-20"
           >
-            <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-orange-50">
-              <Heart size={43} strokeWidth={1.5} className="text-orange-400" />
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#e8efe6] text-[#174c37]">
+              <Heart size={36} strokeWidth={1.5} />
             </div>
 
-            <h3 className="mt-6 font-serif text-2xl font-bold sm:text-3xl">
-              Your wishlist is hungry!
-            </h3>
+            <h2 className="mt-6 font-serif text-2xl font-bold sm:text-3xl">
+              Your wishlist is empty
+            </h2>
 
-            <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-gray-500 sm:text-base">
-              You haven't saved any dishes yet. Explore our menu and tap the
-              heart on anything that makes your mouth water.
+            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-gray-500">
+              Save the dishes you love and find them here whenever you're ready
+              to order.
             </p>
 
             <Link
               to="/menu"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/15 transition hover:-translate-y-0.5 hover:bg-orange-600"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#174c37] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#103b2a]"
             >
-              <UtensilsCrossed size={17} />
-              Discover Delicious Food
+              Discover Our Menu
               <ArrowRight size={17} />
             </Link>
           </motion.div>
         ) : (
           <>
-            {/* Food cards */}
+            {/* Wishlist Toolbar */}
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-bold sm:text-xl">
+                  Your favorite dishes
+                </h2>
+                <p className="mt-1 text-sm text-gray-500">
+                  {items.length} {items.length === 1 ? 'dish' : 'dishes'} saved
+                  for later
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleClearWishlist}
+                className="inline-flex items-center gap-2 rounded-full border border-red-100 bg-white px-4 py-2.5 text-sm font-semibold text-red-500 transition hover:border-red-200 hover:bg-red-50"
+              >
+                <Trash2 size={15} />
+                Clear Wishlist
+              </button>
+            </div>
+
+            {/* Food Cards */}
             <motion.div
               layout
               className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -174,95 +173,95 @@ const Wishlist = () => {
                   <motion.article
                     layout
                     key={item.id}
-                    initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.92, y: 12 }}
-                    transition={{ duration: 0.25 }}
-                    className="group overflow-hidden rounded-3xl border border-orange-100 bg-white shadow-[0_8px_28px_rgba(124,45,18,0.04)] transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_16px_38px_rgba(124,45,18,0.10)]"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="group overflow-hidden rounded-2xl border border-[#e9e4d9] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#c9d8ca] hover:shadow-lg hover:shadow-[#174c37]/5"
                   >
-                    {/* Image */}
-                    <div className="relative h-56 overflow-hidden bg-orange-50">
-                      {item.img ? (
-                        <img
-                          src={item.img}
-                          alt={item.name}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                        />
-                      ) : (
-                        <div className="flex h-full items-center justify-center text-orange-300">
-                          <UtensilsCrossed size={48} />
-                        </div>
-                      )}
+                    {/* Clickable Food Image */}
+                    <div className="relative h-52 overflow-hidden bg-[#f0ede5]">
+                      <Link
+                        to={`/menu/${item.id}`}
+                        aria-label={`View details for ${item.name}`}
+                        className="block h-full w-full"
+                      >
+                        {item.img ? (
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center text-[#174c37]">
+                            <UtensilsCrossed size={42} />
+                          </div>
+                        )}
+                      </Link>
 
-                      <div className="absolute left-3 top-3 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-bold text-gray-800 shadow-sm backdrop-blur">
-                        {item.cat || 'Favorite'}
-                      </div>
+                      <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
+                        {item.cat || 'Our Menu'}
+                      </span>
 
                       <button
                         type="button"
-                        onClick={() => dispatch(removeFromWishlist(item.id))}
+                        onClick={() => handleRemove(item)}
                         aria-label={`Remove ${item.name} from wishlist`}
                         title="Remove from wishlist"
-                        className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-red-500 shadow-md transition hover:scale-110 hover:bg-red-500 hover:text-white"
+                        className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white text-red-500 shadow-sm transition hover:bg-red-500 hover:text-white"
                       >
-                        <Heart size={19} className="fill-current" />
+                        <Heart size={17} className="fill-current" />
                       </button>
 
                       {isInCart(item.id) && (
-                        <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-green-600 px-3 py-1.5 text-xs font-bold text-white shadow-md">
-                          <Check size={14} />
+                        <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-[#174c37] px-3 py-1.5 text-xs font-semibold text-white shadow-sm">
+                          <Check size={13} />
                           In your cart
-                        </div>
+                        </span>
                       )}
                     </div>
 
-                    {/* Card body */}
-                    <div className="p-5">
+                    {/* Food Details */}
+                    <div className="p-4">
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="line-clamp-1 font-serif text-lg font-bold text-gray-900">
-                          {item.name}
-                        </h3>
+                        <Link
+                          to={`/menu/${item.id}`}
+                          className="min-w-0 flex-1"
+                        >
+                          <h3 className="line-clamp-2 font-serif text-lg font-bold transition hover:text-[#174c37]">
+                            {item.name}
+                          </h3>
+                        </Link>
 
-                        <span className="shrink-0 text-base font-extrabold text-orange-600">
+                        <span className="shrink-0 text-base font-bold text-[#174c37]">
                           {formatPrice(item.price)}
                         </span>
                       </div>
 
-                      <div className="mt-3 flex items-center gap-1.5 text-sm text-gray-500">
-                        <Star
-                          size={15}
-                          className="fill-amber-400 text-amber-400"
-                        />
-                        <span className="font-semibold text-gray-800">
-                          {Number(item.rating ?? 4.8).toFixed(1)}
-                        </span>
-                        <span>·</span>
-                        <span>Customer favorite</span>
-                      </div>
-
                       {item.description && (
-                        <p className="mt-3 line-clamp-2 text-sm leading-6 text-gray-500">
+                        <p className="mt-2 line-clamp-2 text-sm leading-5 text-gray-500">
                           {item.description}
                         </p>
                       )}
 
+                      {/* Card Actions */}
                       <div className="mt-5 flex gap-2">
                         <button
                           type="button"
                           onClick={() => handleAddToCart(item)}
-                          className="flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl bg-orange-500 px-3 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
+                          className="flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl bg-[#174c37] px-3 py-3 text-sm font-semibold text-white transition hover:bg-[#103b2a] active:scale-[0.98]"
                         >
-                          <ShoppingCart size={17} />
+                          <ShoppingCart size={16} />
                           {isInCart(item.id) ? 'Add Another' : 'Add to Cart'}
                         </button>
 
                         <button
                           type="button"
-                          onClick={() => dispatch(removeFromWishlist(item.id))}
+                          onClick={() => handleRemove(item)}
                           aria-label={`Delete ${item.name}`}
-                          title="Remove favorite"
-                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-500 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
+                          title="Remove from wishlist"
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#e9e4d9] text-gray-800 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
                         >
                           <Trash2 size={17} />
                         </button>
@@ -273,34 +272,33 @@ const Wishlist = () => {
               </AnimatePresence>
             </motion.div>
 
-            {/* Bottom actions */}
-            <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-orange-100 bg-white p-5 sm:flex-row sm:px-7">
+            {/* Bottom Navigation */}
+            <div className="mt-10 flex flex-col justify-between gap-4 rounded-2xl border border-[#e9e4d9] bg-white p-5 sm:flex-row sm:items-center sm:px-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-orange-500">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#e8efe6] text-[#174c37]">
                   <ShoppingBag size={21} />
                 </div>
+
                 <div>
-                  <p className="font-bold text-gray-900">
-                    Ready for something delicious?
-                  </p>
-                  <p className="mt-1 text-xs text-gray-500">
-                    Your favorite meals are just a click away.
+                  <p className="font-bold">Ready to order?</p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Your next favorite meal is waiting.
                   </p>
                 </div>
               </div>
 
-              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   to="/menu"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 px-5 py-3 text-sm font-bold text-gray-700 transition hover:border-orange-300 hover:text-orange-600"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#e9e4d9] px-5 py-3 text-sm font-semibold transition hover:border-[#174c37] hover:text-[#174c37]"
                 >
                   <ArrowLeft size={16} />
-                  Continue Browsing
+                  Browse Menu
                 </Link>
 
                 <Link
                   to="/cart"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-500"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#174c37] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#103b2a]"
                 >
                   View Cart
                   <ArrowRight size={16} />
