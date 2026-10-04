@@ -22,6 +22,7 @@ import {
   Wallet
 } from 'lucide-react'
 import { inc, dec, remove, clear } from '../store/store'
+import toast from 'react-hot-toast'
 
 const DELIVERY_FEE = 4.99
 const FREE_DELIVERY_MINIMUM = 50
@@ -226,7 +227,7 @@ export function Cart() {
             {/* LEFT: CART ITEMS AND CHECKOUT */}
             <div className="min-w-0 space-y-6">
               <section className="overflow-hidden rounded-[1.75rem] border border-[#e9e4d9] bg-white shadow-sm">
-                <div className="flex items-center justify-between gap-3 border-b border-gray-100 p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-3 border-b border-gray-100 p-4 sm:p-6">
                   <div>
                     <h2 className="font-serif text-2xl font-bold">
                       Your Items
@@ -239,7 +240,10 @@ export function Cart() {
 
                   <button
                     type="button"
-                    onClick={() => dispatch(clear())}
+                    onClick={() => {
+                      dispatch(clear())
+                      toast.success('All food items cleared successfully!')
+                    }}
                     className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50"
                   >
                     <Trash2 size={14} />
@@ -288,7 +292,7 @@ export function Cart() {
                             </p>
                           </div>
 
-                          <div className="flex items-center justify-between gap-3 sm:flex-col sm:items-end">
+                          <div className="flex items-center justify-between gap-1 md:gap-3 sm:flex-col sm:items-end">
                             <div className="flex items-center gap-1 sm:gap-3 rounded-full border border-gray-200 bg-[#faf8f2] p-1">
                               <button
                                 type="button"
@@ -324,8 +328,13 @@ export function Cart() {
                               <button
                                 type="button"
                                 aria-label={`Remove ${item.name}`}
-                                onClick={() => dispatch(remove(item.id))}
-                                className="grid h-8 w-8 place-items-center rounded-full text-red-400 md:text-gray-400 transition hover:bg-red-50 hover:text-red-500"
+                                onClick={() => {
+                                  dispatch(remove(item.id))
+                                  toast.success(
+                                    `${item.name} removed from your cart!`
+                                  )
+                                }}
+                                className="grid h-8 w-8 place-items-center rounded-full text-red-400 md:text-gray-700 transition hover:bg-red-50 hover:text-red-500"
                               >
                                 <Trash2 size={16} />
                               </button>
