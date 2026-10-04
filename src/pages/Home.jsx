@@ -82,7 +82,7 @@ export default function Home() {
       <FoodCategory />
       <section className="mx-auto max-w-7xl px-4 py-16">
         <Title sub="Must Try">Popular Dishes</Title>
-        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-4">
           {dishes.slice(0, 4).map(d => (
             <DishCard key={d.id} d={d} />
           ))}
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
       <section className="mx-auto max-w-7xl px-4 py-16">
         <Title sub="Why Choose Us">What Makes Us Special</Title>
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-4">
           {[
             'Premium Quality Ingredients',
             'Skilled & Experienced Chefs',
