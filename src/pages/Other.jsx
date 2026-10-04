@@ -289,7 +289,7 @@ export function Cart() {
                           </div>
 
                           <div className="flex items-center justify-between gap-3 sm:flex-col sm:items-end">
-                            <div className="flex items-center gap-3 rounded-full border border-gray-200 bg-[#faf8f2] p-1">
+                            <div className="flex items-center gap-1 sm:gap-3 rounded-full border border-gray-200 bg-[#faf8f2] p-1">
                               <button
                                 type="button"
                                 aria-label={`Decrease ${item.name} quantity`}
@@ -314,7 +314,7 @@ export function Cart() {
                               </button>
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1 sm:gap-3">
                               <p className="text-sm font-bold text-gray-900">
                                 {money(
                                   Number(item.price) * Number(item.qty || 1)
@@ -325,7 +325,7 @@ export function Cart() {
                                 type="button"
                                 aria-label={`Remove ${item.name}`}
                                 onClick={() => dispatch(remove(item.id))}
-                                className="grid h-8 w-8 place-items-center rounded-full text-gray-400 transition hover:bg-red-50 hover:text-red-500"
+                                className="grid h-8 w-8 place-items-center rounded-full text-red-400 md:text-gray-400 transition hover:bg-red-50 hover:text-red-500"
                               >
                                 <Trash2 size={16} />
                               </button>
