@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'motion/react'
-import { Play, Leaf, ChefHat, Armchair, CalendarCheck, Sparkles, ArrowRight, Star, HeartHandshake } from 'lucide-react'
+import { Play, Leaf, ChefHat, Armchair, CalendarCheck, Sparkles, ArrowRight, Star, HeartHandshake, Gift, CalendarDays } from 'lucide-react'
 import { dishes, IMG } from '../data/dishes'
 import { Btn } from '../components/Btn'
 import { Title } from '../components/Title'
@@ -365,12 +365,153 @@ export default function Home() {
         </div>
       </section>
       <Testimonials />
-      <section className="bg-forest py-14 text-center text-white">
-        <h2 className="font-serif text-3xl">Ready for a Great Meal?</h2>
-        <p className="mb-6 mt-2 text-white/75">
-          Reserve your table now and enjoy an unforgettable dining experience.
-        </p>
-        <Btn to="/contact">Book a Table</Btn>
+      <section className="relative overflow-hidden bg-forest py-20 text-white md:py-24">
+        {/* Background Glow */}
+        <div className="absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-orange-400/10 blur-3xl" />
+
+        <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-emerald-300/10 blur-3xl" />
+
+        {/* Decorative Circles */}
+        <div className="absolute left-[8%] top-12 h-16 w-16 rounded-full border border-white/10" />
+        <div className="absolute bottom-10 right-[10%] h-24 w-24 rounded-full border border-orange-300/10" />
+
+        <div className="relative mx-auto max-w-5xl px-4 text-center">
+          {/* Top Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm"
+          >
+            <Sparkles size={15} className="text-orange-300" />
+
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/75">
+              Your Table Is Waiting
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+          >
+            Ready for a
+            <span className="block text-orange-300">Great Meal?</span>
+          </motion.h2>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base md:text-lg"
+          >
+            Delicious flavors, fresh ingredients, and unforgettable moments are
+            waiting for you. Reserve your table and let us take care of the
+            rest.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <Btn to="/contact">
+              <span className="flex items-center gap-2">
+                <CalendarDays size={17} />
+                Book a Table
+              </span>
+            </Btn>
+
+            <Link
+              to="/menu"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-orange-300/40 hover:bg-white/10"
+            >
+              Explore Our Menu
+              <ArrowRight
+                size={17}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </motion.div>
+
+          {/* Bottom Information */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mx-auto mt-12 flex max-w-2xl flex-col items-center justify-center gap-6 border-t border-white/10 pt-7 sm:flex-row sm:gap-10"
+          >
+            {/* Rating */}
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-400/10 text-orange-300">
+                <Star size={19} fill="currentColor" />
+              </div>
+
+              <div className="text-left">
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map(item => (
+                    <Star
+                      key={item}
+                      size={12}
+                      fill="currentColor"
+                      className="text-orange-300"
+                    />
+                  ))}
+                </div>
+
+                <p className="mt-1 text-xs text-white/50">
+                  4.9/5 from 5,000+ guests
+                </p>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden h-8 w-px bg-white/10 sm:block" />
+
+            {/* Fresh Food */}
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-300/10 text-emerald-300">
+                <Leaf size={19} />
+              </div>
+
+              <div className="text-left">
+                <p className="text-sm font-semibold">Fresh Ingredients</p>
+
+                <p className="mt-1 text-xs text-white/50">
+                  Prepared fresh every day
+                </p>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden h-8 w-px bg-white/10 sm:block" />
+
+            {/* Special Offer */}
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-300/10 text-orange-300">
+                <Gift size={19} />
+              </div>
+
+              <div className="text-left">
+                <p className="text-sm font-semibold">Special Offers</p>
+
+                <p className="mt-1 text-xs text-white/50">
+                  Delicious deals every week
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </>
   )
