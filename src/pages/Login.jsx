@@ -8,7 +8,6 @@ import {
   Mail,
   Lock,
   ArrowRight,
-  ChefHat,
   CheckCircle2
 } from 'lucide-react'
 
@@ -70,7 +69,7 @@ export function Login() {
 
           {/* Content */}
           <div className="relative z-10 flex h-full flex-col justify-between p-10 xl:p-14">
-            
+
             {/* Main Content */}
             <div className="max-w-xl">
               <motion.div
@@ -125,19 +124,6 @@ export function Login() {
             RIGHT SIDE — LOGIN FORM
         ======================================== */}
         <section className="relative flex min-h-screen items-center justify-center px-5 py-10 sm:px-8 lg:px-12 xl:px-20">
-          {/* Mobile Logo */}
-          <Link
-            to="/"
-            className="absolute left-5 top-6 flex items-center gap-2 lg:hidden"
-          >
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#174c37] text-amber-300">
-              <ChefHat size={20} />
-            </div>
-
-            <span className="font-serif text-xl font-bold text-[#174c37]">
-              Antixor
-            </span>
-          </Link>
 
           {/* Decorative Glow */}
           <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-emerald-100/60 blur-[100px]" />

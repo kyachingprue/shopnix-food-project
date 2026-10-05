@@ -9,7 +9,6 @@ import {
   User,
   Phone,
   ArrowRight,
-  UtensilsCrossed,
   CheckCircle2,
 } from "lucide-react";
 
@@ -104,18 +103,6 @@ const Register = () => {
         {/* ================= RIGHT SIDE ================= */}
         <section className="flex items-center justify-center px-5 py-10 sm:px-8 lg:px-12 xl:px-20">
           <div className="w-full max-w-lg">
-            {/* Mobile Logo */}
-            <div className="mb-10 flex justify-center lg:hidden">
-              <Link to="/" className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500 text-white shadow-lg shadow-orange-500/30">
-                  <UtensilsCrossed size={22} />
-                </div>
-
-                <span className="text-2xl font-black text-gray-900">
-                  Food<span className="text-orange-500">ly</span>
-                </span>
-              </Link>
-            </div>
 
             {/* Heading */}
             <div className="mb-8">

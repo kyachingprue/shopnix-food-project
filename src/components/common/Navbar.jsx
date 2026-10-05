@@ -21,6 +21,7 @@ const links = [
   { to: '/', label: 'Home', icon: Home },
   { to: '/menu', label: 'Our Menu', icon: UtensilsCrossed },
   { to: '/about', label: 'About Us', icon: Info },
+  { to: '/blogs', label: 'Blogs', icon: Info },
   { to: '/contact', label: 'Contact', icon: Mail }
 ]
 

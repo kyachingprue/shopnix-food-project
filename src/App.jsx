@@ -10,7 +10,8 @@ import { Contact } from './pages/Contact'
 import Wishlist from './components/food/Wishlist'
 import { Login } from './pages/Login'
 import Register from './pages/Register'
-
+import Blogs from './pages/Blogs'
+import BlogDetails from './components/blog/BlogDetails'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -29,6 +30,8 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogDetails />} />
       </Route>
     </Routes>
   )

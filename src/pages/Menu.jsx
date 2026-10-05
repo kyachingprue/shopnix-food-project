@@ -6,6 +6,7 @@ import { dishes, cats } from '../data/dishes'
 import { Title } from '../components/Title'
 import { FoodCard } from '../components/food/FoodCard'
 import { useSearchParams } from 'react-router'
+import Testimonials from '../components/Testimonials'
 
 export function MenuPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -153,6 +154,7 @@ export function MenuPage() {
           </div>
         )}
       </div>
+      <Testimonials/>
     </section>
   )
 }

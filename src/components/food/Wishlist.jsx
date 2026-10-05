@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import {
   ArrowRight,
   Heart,
@@ -60,21 +60,6 @@ const Wishlist = () => {
 
   return (
     <main className="min-h-screen bg-[#faf8f2] pb-16 text-[#202b22]">
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 2500,
-          style: {
-            borderRadius: '12px',
-            background: '#174c37',
-            color: '#fff',
-            padding: '14px 18px',
-            fontSize: '14px'
-          }
-        }}
-      />
-
       {/* Wishlist Header */}
       <section className="border-b border-[#e9e4d9] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">

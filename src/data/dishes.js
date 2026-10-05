@@ -17,6 +17,745 @@ export const cats = [
   'Seafood'
 ]
 
+export const blogData = [
+  {
+    id: 'seasonal-vegetables-guide',
+    title: 'The Complete Guide to Cooking With Seasonal Vegetables',
+    excerpt:
+      'Discover how seasonal vegetables can make everyday meals fresher, healthier, and surprisingly delicious.',
+    category: 'Healthy Living',
+    author: 'Maya Anderson',
+    date: 'October 2, 2026',
+    readTime: '6 min read',
+    image:
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1400&q=85',
+    featured: true,
+    tags: ['Vegetables', 'Healthy', 'Seasonal'],
+    intro:
+      'Cooking with seasonal vegetables is one of the easiest ways to bring better flavor and freshness into your kitchen. When vegetables are naturally in season, they often have better texture, stronger flavor, and more vibrant color.',
+    ingredients: [
+      '2 cups fresh seasonal vegetables',
+      '2 tablespoons extra virgin olive oil',
+      '1 teaspoon sea salt',
+      '½ teaspoon black pepper',
+      '1 teaspoon fresh herbs',
+      '1 tablespoon lemon juice'
+    ],
+    tips: [
+      'Buy vegetables that look firm and naturally vibrant.',
+      'Avoid overcrowding the pan when roasting.',
+      'Add fresh herbs near the end to preserve their aroma.',
+      'Use lemon juice to brighten roasted vegetables.'
+    ],
+    sections: [
+      {
+        heading: 'Why seasonal vegetables taste better',
+        text: 'Seasonal produce generally reaches the kitchen closer to its natural harvesting period. This helps preserve texture, aroma, and flavor, making simple recipes taste much more interesting without requiring complicated sauces or techniques.'
+      },
+      {
+        heading: 'Keep the preparation simple',
+        text: 'You do not need a long ingredient list. A little olive oil, salt, pepper, herbs, and a hot oven can transform ordinary vegetables into a beautiful side dish.'
+      },
+      {
+        heading: 'Build a balanced plate',
+        text: 'Try pairing roasted vegetables with a protein source, whole grains, and a fresh salad. This creates a colorful plate with different textures and flavors while keeping the meal satisfying.'
+      }
+    ]
+  },
+
+  {
+    id: 'perfect-pasta-at-home',
+    title: 'How to Make Restaurant-Style Pasta at Home',
+    excerpt:
+      'A few simple techniques can turn an ordinary pasta dinner into a restaurant-worthy experience.',
+    category: 'Cooking Tips',
+    author: 'Daniel Carter',
+    date: 'September 28, 2026',
+    readTime: '5 min read',
+    image:
+      'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Pasta', 'Cooking', 'Dinner'],
+    intro:
+      'Great pasta is less about expensive ingredients and more about technique. The right amount of salt, properly cooked pasta, and a silky sauce can completely change the final result.',
+    ingredients: [
+      '250g dried pasta',
+      '2 tablespoons olive oil',
+      '2 cloves garlic',
+      '½ cup pasta water',
+      '½ cup parmesan cheese',
+      'Fresh basil'
+    ],
+    tips: [
+      'Salt your pasta water generously.',
+      'Always reserve some pasta water before draining.',
+      'Finish cooking pasta in the sauce.',
+      'Add cheese away from extremely high heat.'
+    ],
+    sections: [
+      {
+        heading: 'Start with properly salted water',
+        text: 'Pasta water should be seasoned before the pasta goes in. This is one of the easiest opportunities to season the pasta from the inside rather than relying entirely on the sauce.'
+      },
+      {
+        heading: 'The secret is pasta water',
+        text: 'Starchy pasta water helps emulsify the sauce and gives it a smooth, glossy texture. Add it gradually while tossing the pasta with your sauce.'
+      },
+      {
+        heading: 'Finish everything together',
+        text: 'Instead of simply pouring sauce over cooked pasta, combine them in the pan for the final minute. This allows the sauce to coat every strand beautifully.'
+      }
+    ]
+  },
+
+  {
+    id: 'healthy-breakfast-ideas',
+    title: '7 Delicious Breakfast Ideas for Busy Mornings',
+    excerpt:
+      'Start your day with quick, nourishing breakfasts that take less time than ordering delivery.',
+    category: 'Breakfast',
+    author: 'Sofia Bennett',
+    date: 'September 21, 2026',
+    readTime: '4 min read',
+    image:
+      'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Breakfast', 'Quick Meals', 'Healthy'],
+    intro:
+      'Busy mornings do not mean you have to skip breakfast. With a few simple ingredients prepared in advance, you can create satisfying meals in just a few minutes.',
+    ingredients: [
+      'Greek yogurt',
+      'Fresh berries',
+      'Banana',
+      'Whole grain toast',
+      'Avocado',
+      'Eggs'
+    ],
+    tips: [
+      'Prepare ingredients the night before.',
+      'Keep fresh fruit visible in your kitchen.',
+      'Use Greek yogurt as a quick protein-rich base.',
+      'Batch-cook eggs for several mornings.'
+    ],
+    sections: [
+      {
+        heading: 'Make breakfast easier',
+        text: 'The easiest way to eat better in the morning is to reduce the number of decisions you need to make. Keep a few dependable ingredients ready to combine.'
+      },
+      {
+        heading: 'Think in combinations',
+        text: 'A good breakfast usually combines protein, carbohydrates, healthy fats, and fruit or vegetables. You can mix and match these components depending on your schedule.'
+      }
+    ]
+  },
+
+  {
+    id: 'ultimate-burger-guide',
+    title: 'The Ultimate Guide to Building a Better Burger',
+    excerpt:
+      'From the bun to the final sauce, here is how to build a burger with incredible texture and flavor.',
+    category: 'Food Guide',
+    author: 'Ethan Brooks',
+    date: 'September 16, 2026',
+    readTime: '7 min read',
+    image:
+      'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Burger', 'Grill', 'Food Guide'],
+    intro:
+      'A great burger is all about balance. You want a juicy center, a toasted bun, creamy sauce, crunchy vegetables, and just enough cheese to bring everything together.',
+    ingredients: [
+      '200g ground beef',
+      '1 brioche bun',
+      '1 slice cheddar cheese',
+      'Lettuce',
+      'Tomato',
+      'Pickles',
+      'House burger sauce'
+    ],
+    tips: [
+      'Do not overwork the meat.',
+      'Season just before cooking.',
+      'Toast the bun for better texture.',
+      'Let the burger rest briefly before serving.'
+    ],
+    sections: [
+      {
+        heading: 'Choose the right meat',
+        text: 'A moderate amount of fat helps create a juicy burger. Avoid pressing the meat too much while forming the patty because that can create a dense texture.'
+      },
+      {
+        heading: 'Texture matters',
+        text: 'A burger becomes more interesting when every bite contains different textures. Combine a soft toasted bun with crisp lettuce, juicy tomato, creamy sauce, and a tender patty.'
+      }
+    ]
+  },
+
+  {
+    id: 'coffee-pairing-guide',
+    title: 'Coffee & Food Pairing: What Goes Best Together?',
+    excerpt:
+      'Learn how different coffee flavors can complement sweet, savory, and buttery foods.',
+    category: 'Food Guide',
+    author: 'Liam Wilson',
+    date: 'September 10, 2026',
+    readTime: '5 min read',
+    image:
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Coffee', 'Pairing', 'Drinks'],
+    intro:
+      'Coffee has a surprisingly wide range of flavors. Depending on the roast and brewing style, it can complement desserts, breakfast foods, chocolate, or even savory dishes.',
+    ingredients: [
+      'Freshly brewed coffee',
+      'Dark chocolate',
+      'Butter croissant',
+      'Fresh berries',
+      'Cheese'
+    ],
+    tips: [
+      'Light roasts work beautifully with fruit.',
+      'Dark chocolate pairs well with richer coffee.',
+      'Milk-based coffee works well with pastries.',
+      'Avoid overpowering delicate coffee with very spicy food.'
+    ],
+    sections: [
+      {
+        heading: 'Match intensity',
+        text: 'The easiest pairing rule is to match intensity. A bold dark roast can stand up to chocolate or rich desserts, while a lighter roast can highlight fruit and delicate pastries.'
+      },
+      {
+        heading: 'Experiment with contrast',
+        text: 'Not every pairing needs to be similar. Sometimes contrast creates the most interesting experience, such as bright coffee with buttery pastries.'
+      }
+    ]
+  },
+
+  {
+    id: 'meal-prep-weekend',
+    title: 'A Simple Weekend Meal Prep Routine',
+    excerpt:
+      'Spend a little time on the weekend and make your weekday meals dramatically easier.',
+    category: 'Healthy Living',
+    author: 'Olivia James',
+    date: 'September 4, 2026',
+    readTime: '6 min read',
+    image:
+      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Meal Prep', 'Healthy', 'Planning'],
+    intro:
+      'Meal preparation does not need to consume your entire weekend. A simple routine can help you prepare ingredients instead of cooking complete meals in advance.',
+    ingredients: [
+      'Mixed vegetables',
+      'Brown rice',
+      'Chicken breast',
+      'Eggs',
+      'Fresh greens',
+      'Homemade dressing'
+    ],
+    tips: [
+      'Prepare ingredients instead of complete meals.',
+      'Store sauces separately.',
+      'Use airtight containers.',
+      'Keep two flexible meal options available.'
+    ],
+    sections: [
+      {
+        heading: 'Prepare building blocks',
+        text: 'Cook a grain, prepare a protein, wash your vegetables, and make one simple sauce. During the week you can combine them in different ways.'
+      },
+      {
+        heading: 'Keep variety',
+        text: 'The biggest problem with meal prep is boredom. Change the sauces, herbs, and serving style so the same ingredients feel completely different.'
+      }
+    ]
+  },
+
+  {
+    id: 'homemade-pizza-secrets',
+    title: '5 Secrets Behind a Perfect Homemade Pizza',
+    excerpt:
+      'Crispy edges, a soft center, and a beautifully balanced topping combination are closer than you think.',
+    category: 'Cooking Tips',
+    author: 'Noah Miller',
+    date: 'August 29, 2026',
+    readTime: '8 min read',
+    image:
+      'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Pizza', 'Baking', 'Italian'],
+    intro:
+      'You do not need a professional pizza oven to make an impressive pizza at home. High heat, good dough, and restraint with toppings are the real secrets.',
+    ingredients: [
+      'Pizza dough',
+      'Tomato sauce',
+      'Mozzarella',
+      'Fresh basil',
+      'Olive oil',
+      'Flour'
+    ],
+    tips: [
+      'Let the dough rest properly.',
+      'Preheat your oven thoroughly.',
+      'Do not overload the pizza.',
+      'Use a hot baking surface when possible.'
+    ],
+    sections: [
+      {
+        heading: 'Give the dough time',
+        text: 'Resting allows the dough to become easier to stretch and helps develop better flavor. Rushing this stage can lead to a dense crust.'
+      },
+      {
+        heading: 'Less can be more',
+        text: 'Too many toppings release moisture and make the crust difficult to crisp. Use a few high-quality ingredients and let each one contribute.'
+      }
+    ]
+  },
+
+  {
+    id: 'dessert-plating',
+    title: 'How to Plate Desserts Like a Restaurant',
+    excerpt:
+      'Beautiful presentation can turn a simple dessert into an unforgettable final course.',
+    category: 'Inspiration',
+    author: 'Emma Parker',
+    date: 'August 22, 2026',
+    readTime: '4 min read',
+    image:
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Dessert', 'Presentation', 'Inspiration'],
+    intro:
+      'Dessert presentation is not about making the plate complicated. It is about creating balance between color, texture, negative space, and the main dessert.',
+    ingredients: [
+      'Your favorite dessert',
+      'Fresh berries',
+      'Mint leaves',
+      'Chocolate sauce',
+      'Powdered sugar'
+    ],
+    tips: [
+      'Choose one visual focal point.',
+      'Use negative space intentionally.',
+      'Add color with fresh fruit.',
+      'Keep sauces controlled and elegant.'
+    ],
+    sections: [
+      {
+        heading: 'Start with one hero element',
+        text: 'Place the main dessert first. Everything else should support it instead of competing with it.'
+      },
+      {
+        heading: 'Use contrast',
+        text: 'A creamy dessert can look more interesting next to something crisp, colorful, or fresh. Contrast makes the plate visually and texturally exciting.'
+      }
+    ]
+  },
+  {
+    id: 'creamy-garlic-pasta',
+    title: 'How to Make Creamy Garlic Pasta at Home',
+    excerpt:
+      'A rich, creamy pasta recipe with roasted garlic, parmesan, and fresh herbs that feels like restaurant comfort food.',
+    category: 'Cooking Tips',
+    author: 'Emma Wilson',
+    date: 'September 2, 2026',
+    readTime: '7 min read',
+    image:
+      'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Pasta', 'Italian', 'Garlic'],
+    intro:
+      'Creamy garlic pasta is one of those simple dishes that can turn a few everyday ingredients into something incredibly satisfying. The secret is building flavor slowly and balancing the richness with fresh herbs and parmesan.',
+    ingredients: [
+      'Spaghetti or fettuccine',
+      'Fresh garlic',
+      'Heavy cream',
+      'Parmesan cheese',
+      'Butter',
+      'Fresh parsley',
+      'Black pepper'
+    ],
+    tips: [
+      'Cook the pasta until just al dente.',
+      'Use freshly grated parmesan for a smoother sauce.',
+      'Do not let the cream boil aggressively.',
+      'Save some pasta water for the sauce.'
+    ],
+    sections: [
+      {
+        heading: 'Start with aromatic garlic',
+        text: 'Cook the garlic gently in butter until fragrant and lightly golden. Avoid burning it because bitter garlic can overpower the entire sauce.'
+      },
+      {
+        heading: 'Build a silky sauce',
+        text: 'Add cream and gradually mix in parmesan. A small amount of reserved pasta water helps create a smooth sauce that coats every strand beautifully.'
+      }
+    ]
+  },
+
+  {
+    id: 'healthy-buddha-bowl',
+    title: 'The Ultimate Guide to Building a Colorful Buddha Bowl',
+    excerpt:
+      'Learn how to combine grains, fresh vegetables, protein, and flavorful sauces into one balanced and beautiful meal.',
+    category: 'Healthy Living',
+    author: 'Sophia Carter',
+    date: 'September 5, 2026',
+    readTime: '6 min read',
+    image:
+      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Healthy', 'Vegetables', 'Bowl'],
+    intro:
+      'A Buddha bowl is more than just a colorful meal. It is an easy way to combine different textures, flavors, and nutrients in one satisfying plate without making cooking complicated.',
+    ingredients: [
+      'Brown rice',
+      'Chickpeas',
+      'Avocado',
+      'Carrots',
+      'Cucumber',
+      'Spinach',
+      'Tahini dressing'
+    ],
+    tips: [
+      'Use at least three different vegetables.',
+      'Combine crunchy and soft textures.',
+      'Prepare grains in advance.',
+      'Finish with a flavorful homemade dressing.'
+    ],
+    sections: [
+      {
+        heading: 'Start with a hearty base',
+        text: 'Brown rice, quinoa, couscous, or roasted sweet potatoes can create a satisfying foundation. Choose something that can hold up well under sauces and vegetables.'
+      },
+      {
+        heading: 'Add contrast and color',
+        text: 'Mix green vegetables with orange carrots, creamy avocado, and crispy chickpeas. A colorful bowl usually offers a more interesting combination of textures and flavors.'
+      }
+    ]
+  },
+
+  {
+    id: 'crispy-fried-chicken',
+    title: 'The Secret to Extra Crispy Fried Chicken',
+    excerpt:
+      'Discover simple techniques for making golden, crunchy fried chicken with juicy meat and perfectly seasoned crust.',
+    category: 'Cooking Tips',
+    author: 'James Anderson',
+    date: 'September 8, 2026',
+    readTime: '9 min read',
+    image:
+      'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Chicken', 'Fried Food', 'Comfort Food'],
+    intro:
+      'Great fried chicken is all about contrast: a crunchy, flavorful crust on the outside and tender, juicy meat inside. The right marinade, coating, and cooking temperature make all the difference.',
+    ingredients: [
+      'Chicken pieces',
+      'Buttermilk',
+      'All-purpose flour',
+      'Paprika',
+      'Garlic powder',
+      'Black pepper',
+      'Cooking oil'
+    ],
+    tips: [
+      'Marinate the chicken for several hours.',
+      'Season every layer of the coating.',
+      'Keep the oil temperature consistent.',
+      'Let fried chicken rest before serving.'
+    ],
+    sections: [
+      {
+        heading: 'Marinate for maximum flavor',
+        text: 'A buttermilk marinade helps tenderize the chicken while adding a subtle tangy flavor. Give the chicken enough time to absorb the seasoning before coating it.'
+      },
+      {
+        heading: 'Create a textured coating',
+        text: 'A well-seasoned flour mixture creates the crispy crust. Press the coating firmly onto the chicken so that small irregular pieces form during frying.'
+      }
+    ]
+  },
+
+  {
+    id: 'fresh-fruit-smoothie',
+    title: '5 Fresh Fruit Smoothies for a Better Morning',
+    excerpt:
+      'Start your day with refreshing homemade smoothies packed with fruit, natural sweetness, and simple ingredients.',
+    category: 'Breakfast',
+    author: 'Olivia Bennett',
+    date: 'September 11, 2026',
+    readTime: '5 min read',
+    image:
+      'https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Smoothie', 'Breakfast', 'Fruit'],
+    intro:
+      'Smoothies are one of the easiest ways to create a quick breakfast without sacrificing flavor. With fresh fruit, yogurt, milk, or plant-based alternatives, you can create endless combinations.',
+    ingredients: [
+      'Fresh strawberries',
+      'Banana',
+      'Blueberries',
+      'Greek yogurt',
+      'Almond milk',
+      'Honey',
+      'Ice cubes'
+    ],
+    tips: [
+      'Use frozen fruit for a thicker texture.',
+      'Add yogurt for extra creaminess.',
+      'Avoid adding too much liquid at once.',
+      'Blend leafy greens with sweet fruits.'
+    ],
+    sections: [
+      {
+        heading: 'Choose a flavor combination',
+        text: 'Sweet berries pair beautifully with banana, while mango works well with pineapple and coconut. Start with two or three fruits rather than mixing everything together.'
+      },
+      {
+        heading: 'Get the perfect texture',
+        text: 'Frozen fruit creates a naturally thick and cold smoothie. Add liquid gradually until the blender reaches the consistency you prefer.'
+      }
+    ]
+  },
+
+  {
+    id: 'asian-noodle-bowl',
+    title: 'Build a Delicious Asian-Inspired Noodle Bowl',
+    excerpt:
+      'Create a restaurant-style noodle bowl at home with savory broth, fresh vegetables, herbs, and perfectly cooked noodles.',
+    category: 'Food Guide',
+    author: 'Daniel Lee',
+    date: 'September 14, 2026',
+    readTime: '8 min read',
+    image:
+      'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Noodles', 'Asian Food', 'Soup'],
+    intro:
+      'A warm noodle bowl can be comforting, flavorful, and surprisingly easy to customize. The best bowls combine a flavorful base, satisfying noodles, fresh toppings, and contrasting textures.',
+    ingredients: [
+      'Egg noodles',
+      'Vegetable or chicken broth',
+      'Mushrooms',
+      'Spring onions',
+      'Pak choi',
+      'Soy sauce',
+      'Sesame oil'
+    ],
+    tips: [
+      'Build flavor into the broth.',
+      'Cook noodles separately when possible.',
+      'Add fresh herbs before serving.',
+      'Use sesame oil as a finishing flavor.'
+    ],
+    sections: [
+      {
+        heading: 'Build a flavorful broth',
+        text: 'Soy sauce, ginger, garlic, sesame oil, and a good broth create a flavorful foundation. Taste the broth before adding noodles and adjust the seasoning.'
+      },
+      {
+        heading: 'Finish with fresh toppings',
+        text: 'Spring onions, herbs, mushrooms, chili, and fresh vegetables add brightness and texture. Add them near the end so they stay vibrant and crisp.'
+      }
+    ]
+  },
+
+  {
+    id: 'chocolate-dessert-guide',
+    title: 'The Art of Making the Perfect Chocolate Dessert',
+    excerpt:
+      'From rich brownies to silky mousse, discover how to create impressive chocolate desserts with simple techniques.',
+    category: 'Desserts',
+    author: 'Isabella Moore',
+    date: 'September 17, 2026',
+    readTime: '8 min read',
+    image:
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Chocolate', 'Dessert', 'Baking'],
+    intro:
+      'Chocolate desserts are all about balance. The right combination of sweetness, cocoa intensity, texture, and temperature can turn a simple dessert into a memorable final course.',
+    ingredients: [
+      'Dark chocolate',
+      'Cocoa powder',
+      'Butter',
+      'Eggs',
+      'All-purpose flour',
+      'Sugar',
+      'Vanilla extract'
+    ],
+    tips: [
+      'Use good-quality chocolate.',
+      'Measure baking ingredients carefully.',
+      'Do not overbake brownies.',
+      'Allow desserts to cool before slicing.'
+    ],
+    sections: [
+      {
+        heading: 'Choose the right chocolate',
+        text: 'Dark chocolate provides a deeper flavor while milk chocolate creates a sweeter and softer profile. Choose based on the dessert and the level of sweetness you want.'
+      },
+      {
+        heading: 'Balance texture and sweetness',
+        text: 'A great chocolate dessert should not taste overwhelmingly sweet. A small amount of salt, vanilla, or coffee can make the chocolate flavor much more pronounced.'
+      }
+    ]
+  },
+
+  {
+    id: 'weekend-brunch-guide',
+    title: 'How to Create the Perfect Weekend Brunch at Home',
+    excerpt:
+      'Turn a relaxed weekend morning into a beautiful brunch with simple dishes, fresh drinks, and thoughtful presentation.',
+    category: 'Breakfast',
+    author: 'Mia Thompson',
+    date: 'September 20, 2026',
+    readTime: '7 min read',
+    image:
+      'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Brunch', 'Breakfast', 'Lifestyle'],
+    intro:
+      'A memorable brunch does not require a complicated menu. A few well-prepared dishes, fresh ingredients, and a little attention to presentation can create a restaurant-style experience at home.',
+    ingredients: [
+      'Fresh eggs',
+      'Sourdough bread',
+      'Avocado',
+      'Fresh berries',
+      'Greek yogurt',
+      'Orange juice',
+      'Fresh herbs'
+    ],
+    tips: [
+      'Prepare ingredients the night before.',
+      'Choose dishes that can be served together.',
+      'Keep drinks simple and refreshing.',
+      'Add fresh herbs for presentation.'
+    ],
+    sections: [
+      {
+        heading: 'Keep the menu balanced',
+        text: 'Combine something savory with something sweet and add fresh fruit for contrast. This keeps the table interesting without creating too much cooking work.'
+      },
+      {
+        heading: 'Focus on presentation',
+        text: 'Use simple plates, colorful ingredients, and small bowls for sauces or fruit. A thoughtful presentation makes even easy recipes feel special.'
+      }
+    ]
+  },
+
+  {
+    id: 'fresh-salad-secrets',
+    title: '7 Simple Secrets to Make Restaurant-Style Salads',
+    excerpt:
+      'Learn how chefs balance crunch, freshness, acidity, and creamy textures to create salads that are never boring.',
+    category: 'Healthy Living',
+    author: 'Ethan Walker',
+    date: 'September 23, 2026',
+    readTime: '6 min read',
+    image:
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Salad', 'Healthy', 'Vegetables'],
+    intro:
+      'A great salad is not simply a bowl of vegetables. It is a combination of textures and flavors where every ingredient has a purpose. The dressing and finishing touches are especially important.',
+    ingredients: [
+      'Mixed lettuce',
+      'Cherry tomatoes',
+      'Cucumber',
+      'Red onion',
+      'Avocado',
+      'Feta cheese',
+      'Olive oil'
+    ],
+    tips: [
+      'Dry leafy greens before dressing.',
+      'Add dressing just before serving.',
+      'Include something crunchy.',
+      'Balance acidity with a little sweetness.'
+    ],
+    sections: [
+      {
+        heading: 'Create texture',
+        text: 'Combine crisp vegetables with creamy avocado, crunchy nuts, or toasted seeds. Different textures make every bite more interesting.'
+      },
+      {
+        heading: 'Never underestimate the dressing',
+        text: 'A simple dressing made with olive oil, lemon juice, mustard, and seasoning can completely transform a salad. Always taste and adjust before serving.'
+      }
+    ]
+  },
+
+  {
+    id: 'homemade-burger-guide',
+    title: 'The Complete Guide to Making Better Burgers at Home',
+    excerpt:
+      'Juicy patties, toasted buns, fresh toppings, and the perfect sauce come together in this ultimate homemade burger guide.',
+    category: 'Food Guide',
+    author: 'Lucas Martin',
+    date: 'September 26, 2026',
+    readTime: '9 min read',
+    image:
+      'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Burger', 'Beef', 'Comfort Food'],
+    intro:
+      'Making a great burger at home is easier than it looks. The key is choosing quality ingredients, shaping the meat gently, cooking it properly, and building layers of flavor with toppings and sauce.',
+    ingredients: [
+      'Ground beef',
+      'Burger buns',
+      'Cheddar cheese',
+      'Lettuce',
+      'Tomato',
+      'Pickles',
+      'Burger sauce'
+    ],
+    tips: [
+      'Do not overwork the ground beef.',
+      'Season the patties just before cooking.',
+      'Toast the buns lightly.',
+      'Let the cooked patty rest briefly.'
+    ],
+    sections: [
+      {
+        heading: 'Shape the perfect patty',
+        text: 'Handle the ground beef gently and form a loose patty that is slightly wider than the bun. Avoid compressing the meat too much because this can make the burger dense.'
+      },
+      {
+        heading: 'Build every layer carefully',
+        text: 'A great burger needs contrast. Combine melted cheese, crisp lettuce, juicy tomato, tangy pickles, and a creamy sauce for a balanced bite.'
+      }
+    ]
+  },
+
+  {
+    id: 'morning-coffee-guide',
+    title: 'A Beginner’s Guide to Better Coffee at Home',
+    excerpt:
+      'Discover simple ways to improve your morning coffee by choosing better beans, water, grind size, and brewing techniques.',
+    category: 'Food Guide',
+    author: 'Henry Collins',
+    date: 'September 29, 2026',
+    readTime: '7 min read',
+    image:
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=85',
+    tags: ['Coffee', 'Drinks', 'Morning'],
+    intro:
+      'You do not need expensive equipment to make better coffee. Fresh beans, good water, the correct grind size, and a consistent brewing method can make a noticeable difference.',
+    ingredients: [
+      'Fresh coffee beans',
+      'Filtered water',
+      'Milk',
+      'Brown sugar',
+      'Cinnamon',
+      'Ice',
+      'Optional coffee syrup'
+    ],
+    tips: [
+      'Use freshly ground coffee when possible.',
+      'Store beans away from heat and moisture.',
+      'Use clean filtered water.',
+      'Experiment with grind size gradually.'
+    ],
+    sections: [
+      {
+        heading: 'Start with fresh beans',
+        text: 'Coffee tastes noticeably better when the beans are fresh and properly stored. Keep them in an airtight container away from direct sunlight and moisture.'
+      },
+      {
+        heading: 'Find your preferred brewing style',
+        text: 'Pour-over, French press, espresso, and cold brew each create different flavor profiles. Try different methods and discover which style matches your taste.'
+      }
+    ]
+  }
+]
+
 
 export const dishes = [
   {

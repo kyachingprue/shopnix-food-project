@@ -9,6 +9,7 @@ import { Stars } from '../components/Stars'
 import { FoodCategory } from '../components/food/FoodCategory'
 import Testimonials from '../components/Testimonials'
 
+
 const feats = [
   [Leaf, 'Fresh Ingredients', 'Sourced daily'],
   [ChefHat, 'Expert Chefs', 'Global experience'],
