@@ -1,8 +1,8 @@
-import { Mail, MapPin, Phone } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { Link } from "react-router";
-import { Btn } from "../Btn";
-
+import { Mail, MapPin, Phone } from 'lucide-react'
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { Link } from 'react-router'
+import { Btn } from '../Btn'
+import { GiForkKnifeSpoon } from 'react-icons/gi'
 
 const links = [
   ['/', 'Home'],
@@ -17,7 +17,20 @@ function Footer() {
     <footer className="bg-deep text-sm text-white/80">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-xl text-white">Shopnix</p>
+          {/* Logo */}
+          <Link to="/" className="group flex shrink-0 items-center gap-2.5">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold text-deep shadow-lg shadow-gold/10 transition-transform duration-300 group-hover:rotate-[-8deg]">
+              <GiForkKnifeSpoon size={25} />
+            </span>
+
+            <span className="font-serif text-xl font-bold tracking-tight sm:text-2xl">
+              Shopnix
+              <span className="text-gold">.</span>
+              <span className="mt-0.5 hidden text-[9px] font-normal uppercase tracking-[0.28em] text-white/45 sm:block">
+                Food & Flavor
+              </span>
+            </span>
+          </Link>
           <p className="mt-2 font-script text-xl text-gold">
             Good Food • Great Vibes • Always
           </p>
@@ -72,4 +85,4 @@ function Footer() {
   )
 }
 
-export default Footer;
+export default Footer
